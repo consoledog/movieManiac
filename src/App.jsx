@@ -5,7 +5,6 @@ import {Divider} from "./reusable_components/Divider.jsx";
 import {MovieList} from "./components/MoviesPresented.jsx";
 import {WatchedSummary, WatchedMoviesList, MovieDetails} from "./components/MoviesWatched.jsx";
 import {ErrorMessage, LoadMessage} from "./reusable_components/Messages.jsx";
-import {KEY} from "./config.js";
 
 export default function App() {
     const [typedMovieName, setTypedMovieName] = useState("");
@@ -39,7 +38,8 @@ export default function App() {
             try {
                 setIsLoading(true);
                 setError("");
-                const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${typedMovieName}`, {signal: controller.signal});
+                const res = await fetch(`/api/omdbProxy?search=${typedMovieName}`);
+                //const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${typedMovieName}`, {signal: controller.signal});
                 if (!res.ok) throw new Error("Something went wrong with fetching movies");
                 const data = await res.json(); // Corrected res.json call
                 if(data.Response === "False") throw new Error("Movie not found");
