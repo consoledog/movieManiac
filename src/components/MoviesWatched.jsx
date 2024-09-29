@@ -41,7 +41,7 @@ export function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }
         async function getMovieDetails() {
             try {
                 setIsLoading(true);
-                const res = await fetch(`/api/omdProxyDetails?search=${selectedId}`);
+                const res = await fetch(`/api/omdProxyDetails?selectedId=${selectedId}`);
                 if (!res.ok) throw new Error("Error fetching movie details");
                 const data = await res.json();
                 setMovie(data);
