@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { KEY } from "../config.js";
 import StarRating from "./StartRating.jsx";
 
 const average = (arr) =>
@@ -42,7 +41,7 @@ export function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }
         async function getMovieDetails() {
             try {
                 setIsLoading(true);
-                const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`);
+                const res = await fetch(`/api/omdProxyDetails?search=${selectedId}`);
                 if (!res.ok) throw new Error("Error fetching movie details");
                 const data = await res.json();
                 setMovie(data);
