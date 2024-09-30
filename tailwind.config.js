@@ -39,5 +39,8 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  plugins: [],
+  plugins: [
+    // eslint-disable-next-line no-undef
+    require('daisyui')
+  ],
 };

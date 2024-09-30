@@ -1,6 +1,7 @@
 const KEY = process.env.OMDB_API_KEY;
 
 export async function fetchFromOmdb(queryParam, queryValue) {
+
     const omdbUrl = `http://www.omdbapi.com/?apikey=${KEY}&${queryParam}=${queryValue}`;
 
     try {
