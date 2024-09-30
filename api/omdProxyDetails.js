@@ -1,4 +1,4 @@
-import {fetchFromOmdb} from "./fetchFromOmdb.js"
+import {fetchFromOmdb} from "../utils/fetchFromOmdb.js"
 
 export default async function handler(req, res) {
     const { selectedId } = req.query;
